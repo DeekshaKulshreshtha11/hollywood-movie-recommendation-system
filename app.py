@@ -7,7 +7,8 @@ import requests
 TMDB_API_KEY = st.secrets["TMDB_API_KEY"]
 
 
-similarity = pickle.load(open('similarity.pkl', 'rb'))
+with gzip.open('similarity.pkl.gz', 'rb') as f:
+    similarity = pickle.load(f)
 
 def get_recommendations(movie_name): 
 
